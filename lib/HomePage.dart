@@ -28,8 +28,6 @@ class _HomePageState extends State<Homepage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-    
-
             // Action buttons section
             GridView.count(
               shrinkWrap: true,
@@ -39,7 +37,10 @@ class _HomePageState extends State<Homepage> {
               children: [
                 buildActionButton(context, 'Data Piket', Icons.chat),
                 buildActionButton(context, 'Data Pelanggan', Icons.person),
-                buildActionButton(context,'Barang Masuk/Keluar',Icons.inventory,
+                buildActionButton(
+                  context,
+                  'Barang Masuk/Keluar',
+                  Icons.inventory,
                 ),
               ],
             ),
@@ -52,7 +53,8 @@ class _HomePageState extends State<Homepage> {
   Widget buildActionButton(BuildContext context, String title, IconData icon) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        padding: const EdgeInsets.symmetric(vertical: 20), backgroundColor: Colors.orange,
+        padding: const EdgeInsets.symmetric(vertical: 20),
+        backgroundColor: Colors.orange,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
       ),
       onPressed: () {

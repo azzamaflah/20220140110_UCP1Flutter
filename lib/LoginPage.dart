@@ -75,11 +75,9 @@ class _LoginPageState extends State<LoginPage> {
               ),
               const SizedBox(height: 20),
 
-              // Login Button
               ElevatedButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
-                    // Validasi berhasil, lanjut ke HomePage
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(builder: (context) => const Homepage()),
@@ -88,7 +86,8 @@ class _LoginPageState extends State<LoginPage> {
                 },
                 child: const Text('Masuk'),
                 style: ElevatedButton.styleFrom(
-                  foregroundColor: Colors.white, backgroundColor: Colors.orange,
+                  foregroundColor: Colors.white,
+                  backgroundColor: Colors.orange,
                   padding: const EdgeInsets.symmetric(
                     horizontal: 40,
                     vertical: 12,
@@ -98,7 +97,6 @@ class _LoginPageState extends State<LoginPage> {
               ),
               const SizedBox(height: 20),
 
-              // Link ke halaman pendaftaran
               TextButton(
                 onPressed: () {
                   Navigator.push(

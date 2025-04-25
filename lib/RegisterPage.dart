@@ -60,7 +60,7 @@ class _RegisterPageState extends State<RegisterPage> {
           key: _formKey,
           child: Column(
             children: [
-              // Logo atau icon
+              
               Icon(
                 Icons.account_circle_outlined,
                 size: 80.0,

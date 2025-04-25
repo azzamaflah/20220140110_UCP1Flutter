@@ -9,7 +9,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,9 +18,9 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/login',
       routes: {
-      '/login': (context) => const LoginPage(),
-      '/home': (context) => const Homepage(),
-       // '/order': (context) => const OrderPage(),
+        '/login': (context) => const LoginPage(),
+        '/home': (context) => const Homepage(),
+        // '/order': (context) => const OrderPage(),
       },
     );
   }
