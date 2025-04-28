@@ -65,6 +65,16 @@ class _RegisterPageState extends State<RegisterPage> {
                 color: Colors.orange,
               ),
               const SizedBox(height: 20),
+
+              Text(
+              'DAFTAR AKUN BARU',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
+              const SizedBox(height: 20),
               
               TextFormField(
                 controller: nameController,
