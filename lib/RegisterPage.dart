@@ -50,15 +50,13 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-      ),
+      appBar: AppBar(),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Form(
           key: _formKey,
           child: Column(
             children: [
-              
               Icon(
                 Icons.account_circle_outlined,
                 size: 80.0,
@@ -67,7 +65,7 @@ class _RegisterPageState extends State<RegisterPage> {
               const SizedBox(height: 20),
 
               Text(
-              'DAFTAR AKUN BARU',
+                'DAFTAR AKUN BARU',
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
@@ -75,8 +73,8 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
               ),
               const SizedBox(height: 20),
-              
-            Align(
+
+              Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
                   'Nama Lengkap',
@@ -112,54 +110,102 @@ class _RegisterPageState extends State<RegisterPage> {
                 },
               ),
               const SizedBox(height: 10),
-            
-              TextFormField(
-                controller: emailController,
-                decoration: const InputDecoration(
-                  labelText: 'Email',
-                  prefixIcon: Icon(Icons.email),
-                ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Email tidak boleh kosong';
-                  }
-                  return null;
-                },
-              ),
-              const SizedBox(height: 10),
-            
-              TextFormField(
-                controller: phoneController,
-                decoration: const InputDecoration(
-                  labelText: 'No HP',
-                  prefixIcon: Icon(Icons.phone),
-                ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'No HP tidak boleh kosong';
-                  }
-                  return null;
-                },
-              ),
-              const SizedBox(height: 10),
-              
-              TextFormField(
-                controller: passwordController,
-                decoration: const InputDecoration(
-                  labelText: 'Password',
-                  prefixIcon: Icon(Icons.lock),
-                  suffixIcon: IconButton(
-                    icon: Icon(Icons.visibility),
-                    onPressed: null,
+
+              Row(
+                children: [
+                  // Email
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'Email',
+                            style: TextStyle(fontSize: 16, color: Colors.black),
+                          ),
+                          const SizedBox(height: 5),
+                          TextFormField(
+                            controller: emailController,
+                            decoration: InputDecoration(
+                              prefixIcon: const Icon(Icons.email),
+                              hintText: 'Masukkan email Anda',
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(12.0),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(12.0),
+                                borderSide: const BorderSide(
+                                  color: Colors.orange,
+                                  width: 2,
+                                ),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(12.0),
+                                borderSide: const BorderSide(
+                                  color: Colors.grey,
+                                  width: 1,
+                                ),
+                              ),
+                            ),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Email tidak boleh kosong';
+                              }
+                              return null;
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
-                ),
-                obscureText: true,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Password tidak boleh kosong';
-                  }
-                  return null;
-                },
+                  // No HP
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'No HP',
+                            style: TextStyle(fontSize: 16, color: Colors.black),
+                          ),
+                          const SizedBox(height: 5),
+                          TextFormField(
+                            controller: phoneController,
+                            decoration: InputDecoration(
+                              prefixIcon: const Icon(Icons.phone),
+                              hintText: 'Masukkan No HP Anda',
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(12.0),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(12.0),
+                                borderSide: const BorderSide(
+                                  color: Colors.orange,
+                                  width: 2,
+                                ),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(12.0),
+                                borderSide: const BorderSide(
+                                  color: Colors.grey,
+                                  width: 1,
+                                ),
+                              ),
+                            ),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'No HP tidak boleh kosong';
+                              }
+                              return null;
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
               const SizedBox(height: 10),
 
