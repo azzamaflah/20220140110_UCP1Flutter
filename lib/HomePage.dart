@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ucp1/Datapelanggan.dart';
+import 'package:ucp1/Datapiket.dart'; // Pastikan Anda import halaman Datapiket
 
 class Homepage extends StatelessWidget {
   @override
@@ -31,7 +31,7 @@ class Homepage extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            // Banner - hanya gambar tanpa teks atau tombol
+            // Banner
             Container(
               height: 120,
               width: double.infinity,
@@ -76,7 +76,6 @@ class Homepage extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
       ),
       onPressed: () {
-        // Logika navigasi untuk setiap tombol
         if (title == 'Data Piket') {
           // Navigasi ke halaman Datapiket
           Navigator.push(
@@ -84,7 +83,6 @@ class Homepage extends StatelessWidget {
             MaterialPageRoute(builder: (context) => const Datapiket()),
           );
         }
-
         print('$title klik');
       },
       child: Column(
