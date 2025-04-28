@@ -209,23 +209,105 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
               const SizedBox(height: 10),
 
-              TextFormField(
-                controller: confirmPasswordController,
-                decoration: const InputDecoration(
-                  labelText: 'Konfirmasi Password',
-                  prefixIcon: Icon(Icons.lock),
-                  suffixIcon: IconButton(
-                    icon: Icon(Icons.visibility),
-                    onPressed: null,
+              Row(
+                children: [
+                  // Password
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'Password',
+                            style: TextStyle(fontSize: 16, color: Colors.black),
+                          ),
+                          const SizedBox(height: 5),
+                          TextFormField(
+                            controller: passwordController,
+                            decoration: InputDecoration(
+                              prefixIcon: const Icon(Icons.lock),
+                              hintText: 'Masukkan password Anda',
+                              suffixIcon: const Icon(Icons.visibility),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(12.0),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(12.0),
+                                borderSide: const BorderSide(
+                                  color: Colors.orange,
+                                  width: 2,
+                                ),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(12.0),
+                                borderSide: const BorderSide(
+                                  color: Colors.grey,
+                                  width: 1,
+                                ),
+                              ),
+                            ),
+                            obscureText: true,
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Password tidak boleh kosong';
+                              }
+                              return null;
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
-                ),
-                obscureText: true,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Konfirmasi password tidak boleh kosong';
-                  }
-                  return null;
-                },
+                  // Konfirmasi Password
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'Konfirmasi Password',
+                            style: TextStyle(fontSize: 16, color: Colors.black),
+                          ),
+                          const SizedBox(height: 5),
+                          TextFormField(
+                            controller: confirmPasswordController,
+                            decoration: InputDecoration(
+                              prefixIcon: const Icon(Icons.lock),
+                              hintText: 'Masukkan konfirmasi password Anda',
+                              suffixIcon: const Icon(Icons.visibility),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(12.0),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(12.0),
+                                borderSide: const BorderSide(
+                                  color: Colors.orange,
+                                  width: 2,
+                                ),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(12.0),
+                                borderSide: const BorderSide(
+                                  color: Colors.grey,
+                                  width: 1,
+                                ),
+                              ),
+                            ),
+                            obscureText: true,
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Konfirmasi password tidak boleh kosong';
+                              }
+                              return null;
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
               const SizedBox(height: 20),
 
