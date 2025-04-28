@@ -50,9 +50,20 @@ class _LoginPageState extends State<LoginPage> {
                 // Email Field
                 TextFormField(
                   controller: emailController,
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     labelText: 'Email',
-                    prefixIcon: Icon(Icons.email),
+                    prefixIcon: const Icon(Icons.email),
+                     border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                      borderSide: const BorderSide(color: Colors.orange, width: 2),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                      borderSide: const BorderSide(color: Colors.grey, width: 1),
+                    ),
                   ),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
