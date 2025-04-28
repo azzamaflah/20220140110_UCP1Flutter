@@ -76,11 +76,33 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
               const SizedBox(height: 20),
               
+            Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Nama Lengkap',
+                  style: TextStyle(fontSize: 16, color: Colors.black),
+                ),
+              ),
+              const SizedBox(height: 5),
               TextFormField(
                 controller: nameController,
-                decoration: const InputDecoration(
-                  labelText: 'Nama Lengkap',
-                  prefixIcon: Icon(Icons.person),
+                decoration: InputDecoration(
+                  prefixIcon: const Icon(Icons.person),
+                  hintText: 'Masukkan Nama Lengkap',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12.0),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12.0),
+                    borderSide: const BorderSide(
+                      color: Colors.orange,
+                      width: 2,
+                    ),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12.0),
+                    borderSide: const BorderSide(color: Colors.grey, width: 1),
+                  ),
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
