@@ -77,10 +77,21 @@ class _LoginPageState extends State<LoginPage> {
                 // Password Field
                 TextFormField(
                   controller: passwordController,
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     labelText: 'Password',
                     prefixIcon: Icon(Icons.lock),
                     suffixIcon: Icon(Icons.visibility),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                      borderSide: BorderSide(color: Colors.orange, width: 2),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                      borderSide: BorderSide(color: Colors.grey, width: 1),
+                    ),
                   ),
                   obscureText: true,
                   validator: (value) {
