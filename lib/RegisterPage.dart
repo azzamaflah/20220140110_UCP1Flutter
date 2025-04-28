@@ -318,7 +318,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   foregroundColor: Colors.white,
                   backgroundColor: Colors.orange,
                   padding: const EdgeInsets.symmetric(
-                    horizontal: 40,
+                    horizontal: 140,
                     vertical: 12,
                   ),
                   textStyle: const TextStyle(fontSize: 16),
