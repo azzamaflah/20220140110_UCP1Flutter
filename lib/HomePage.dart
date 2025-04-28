@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1/Datapelanggan.dart';
 
 class Homepage extends StatelessWidget {
   @override
@@ -76,6 +77,14 @@ class Homepage extends StatelessWidget {
       ),
       onPressed: () {
         // Logika navigasi untuk setiap tombol
+        if (title == 'Data Piket') {
+          // Navigasi ke halaman Datapiket
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const Datapiket()),
+          );
+        }
+
         print('$title klik');
       },
       child: Column(
