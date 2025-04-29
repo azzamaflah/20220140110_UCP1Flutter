@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ucp1/DataPelanggan.dart';
 import 'package:ucp1/Datapiket.dart';
-import 'package:ucp1/LoginPage.dart'; // Pastikan Anda import halaman Datapiket
+import 'package:ucp1/LoginPage.dart';
+import 'package:ucp1/PendataanBarang.dart';
 
 class Homepage extends StatelessWidget {
 
@@ -124,6 +125,10 @@ class Homepage extends StatelessWidget {
         minimumSize: Size(double.infinity, 50), // Full width button
       ),
       onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const Pendataanbarang()),
+        );
         print('$title klik');
       },
       child: Column(
