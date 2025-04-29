@@ -41,7 +41,7 @@ class _DatapiketState extends State<Datapiket> {
             // Nama Anggota
             const Text('Nama Anggota', style: TextStyle(fontSize: 16)),
             const SizedBox(height: 10),
-            TextField(
+             TextFormField(
               controller: nameController,
               decoration: InputDecoration(
                 hintText: 'Masukkan Nama Anggota',
@@ -49,6 +49,12 @@ class _DatapiketState extends State<Datapiket> {
                   borderRadius: BorderRadius.circular(12.0),
                 ),
               ),
+               validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Nama anggota tidak boleh kosong';
+                }
+                return null;
+              },
             ),
             const SizedBox(height: 20),
 
@@ -157,21 +163,22 @@ class _DatapiketState extends State<Datapiket> {
                             // Implementasikan navigasi atau detail tugas
 
                             Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => Detailpiket(
-                                    task: tasks[index],
-                                    date: dateController.text,
-                                    memberName: nameController.text,
+                              context,
+                              MaterialPageRoute(
+                                builder:
+                                    (context) => Detailpiket(
+                                      task: tasks[index],
+                                      date: dateController.text,
+                                      memberName: nameController.text,
+                                    ),
+                              ),
+                            );
+                          },
                         ),
-                                ),
-                              );
-                            },
-                          ),
-                        ),
-                      );
-                    },
-                  ),
+                      ),
+                    );
+                  },
+                ),
           ],
         ),
       ),
