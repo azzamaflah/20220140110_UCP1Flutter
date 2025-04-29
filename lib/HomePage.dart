@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1/DataPelanggan.dart';
 import 'package:ucp1/Datapiket.dart'; // Pastikan Anda import halaman Datapiket
 
 class Homepage extends StatelessWidget {
@@ -20,7 +21,7 @@ class Homepage extends StatelessWidget {
             CircleAvatar(
               radius: 20,
               backgroundColor: Colors.white,
-              backgroundImage: AssetImage('assets/profile_icon.png'),
+              backgroundImage: AssetImage('assets/banner.jpg'),
             ),
             const SizedBox(width: 10),
             Text('Selamat Datang'),
@@ -40,19 +41,14 @@ class Homepage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
               ),
               padding: const EdgeInsets.all(10),
-              child: Image.asset(
-                'assets/banner.jpg', // Pastikan path gambar benar
-                height: 80,
-                width: double.infinity,
-                fit:
-                    BoxFit.cover, // Menyesuaikan ukuran gambar dengan container
-              ),
+              child: Image
+              (image: AssetImage('assets/banner.jpg'))
             ),
             const SizedBox(height: 20),
             // Grid dengan 2 kolom di baris pertama dan 1 kolom di baris kedua
             GridView.count(
               shrinkWrap: true,
-              crossAxisCount: 2, // Baris pertama dengan 2 kolom
+              crossAxisCount: 2,
               crossAxisSpacing: 20,
               mainAxisSpacing: 20,
               children: [
@@ -82,7 +78,15 @@ class Homepage extends StatelessWidget {
             context,
             MaterialPageRoute(builder: (context) => const Datapiket()),
           );
+          
+        } else if (title == 'Data Pelanggan') {
+          // Navigasi ke halaman Data Pelanggan
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const Datapelanggan()),
+          );
         }
+        
         print('$title klik');
       },
       child: Column(
