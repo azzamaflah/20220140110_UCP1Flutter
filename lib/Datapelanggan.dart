@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1/DetailPelanggan.dart';
 
 class Datapelanggan extends StatefulWidget {
   const Datapelanggan({super.key});
@@ -202,7 +203,21 @@ class _DatapelangganState extends State<Datapelanggan> {
                 // Tombol Simpan (Full Width)
                 ElevatedButton(
                   onPressed: () {
-                    // Logika simpan
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder:
+                            (context) => DetailPelanggan(
+                              name: nameController.text,
+                              email: emailController.text,
+                              phone: phoneController.text,
+                              address: addressController.text,
+                              province: provinceController.text,
+                              postalCode: postalCodeController.text,
+                            ),
+                      ),
+                    );
+
                   },
                   child: const Text('Simpan'),
                   style: ElevatedButton.styleFrom(
