@@ -48,7 +48,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 const SizedBox(height: 20),
 
-              Align(
+                Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
                     'Email',
@@ -56,8 +56,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
 
-                const SizedBox(height: 5,),
-
+                const SizedBox(height: 5),
                 // Email Field
                 TextFormField(
                   controller: emailController,
@@ -91,7 +90,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 const SizedBox(height: 10),
 
-                 Align(
+                Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
                     'Password',
@@ -135,7 +134,7 @@ class _LoginPageState extends State<LoginPage> {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const Homepage(),
+                          builder : (context) => Homepage(email: emailController.text),
                         ),
                       );
                     }
