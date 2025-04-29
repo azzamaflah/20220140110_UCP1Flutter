@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:ucp1/DataPelanggan.dart';
-import 'package:ucp1/Datapiket.dart'; // Pastikan Anda import halaman Datapiket
+import 'package:ucp1/Datapiket.dart';
+import 'package:ucp1/LoginPage.dart'; // Pastikan Anda import halaman Datapiket
 
 class Homepage extends StatelessWidget {
+
+  final String email;
+  
+  const Homepage({super.key, required this.email});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,7 +18,10 @@ class Homepage extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.exit_to_app),
             onPressed: () {
-              // Implementasikan fungsi logout di sini
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const LoginPage()),
+              );
             },
           ),
         ],
@@ -24,7 +33,7 @@ class Homepage extends StatelessWidget {
               backgroundImage: AssetImage('assets/banner.jpg'),
             ),
             const SizedBox(width: 10),
-            Text('Selamat Datang'),
+            Text('Selamat Datang $email'),
           ],
         ),
       ),
