@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1/HomePage.dart';
 
 class DetailPelanggan extends StatelessWidget {
   final String name;
@@ -132,7 +133,12 @@ class DetailPelanggan extends StatelessWidget {
             // Button "Selesai"
             ElevatedButton(
               onPressed: () {
-                Navigator.pop(context); // Kembali ke halaman sebelumnya
+                 Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Homepage(email: email),
+                  ), // Arahkan ke halaman Homepage
+                );
               },
               child: const Text('Selesai'),
               style: ElevatedButton.styleFrom(
