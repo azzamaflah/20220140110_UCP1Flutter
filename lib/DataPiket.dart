@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1/Detailpiket.dart';
 
 class Datapiket extends StatefulWidget {
   const Datapiket({super.key});
@@ -154,12 +155,23 @@ class _DatapiketState extends State<Datapiket> {
                           icon: const Icon(Icons.arrow_forward_ios_outlined),
                           onPressed: () {
                             // Implementasikan navigasi atau detail tugas
-                          },
+
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Detailpiket(
+                                    task: tasks[index],
+                                    date: dateController.text,
+                                    memberName: nameController.text,
                         ),
-                      ),
-                    );
-                  },
-                ),
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                      );
+                    },
+                  ),
           ],
         ),
       ),
