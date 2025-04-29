@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:ucp1/LoginPage.dart';
-import 'package:ucp1/HomePage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +18,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/login',
       routes: {
         '/login': (context) => const LoginPage(),
-        '/home': (context) => const Homepage(),
+    
         // '/order': (context) => const OrderPage(),
       },
     );
