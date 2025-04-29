@@ -41,7 +41,7 @@ class _DatapiketState extends State<Datapiket> {
             // Nama Anggota
             const Text('Nama Anggota', style: TextStyle(fontSize: 16)),
             const SizedBox(height: 10),
-             TextFormField(
+            TextFormField(
               controller: nameController,
               decoration: InputDecoration(
                 hintText: 'Masukkan Nama Anggota',
@@ -49,7 +49,7 @@ class _DatapiketState extends State<Datapiket> {
                   borderRadius: BorderRadius.circular(12.0),
                 ),
               ),
-               validator: (value) {
+              validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'Nama anggota tidak boleh kosong';
                 }
@@ -61,7 +61,7 @@ class _DatapiketState extends State<Datapiket> {
             // Pilih Tanggal
             const Text('Pilih Tanggal', style: TextStyle(fontSize: 16)),
             const SizedBox(height: 10),
-            TextField(
+            TextFormField(
               controller: dateController,
               decoration: InputDecoration(
                 hintText: 'Pilih Tanggal',
@@ -87,16 +87,21 @@ class _DatapiketState extends State<Datapiket> {
                   });
                 }
               },
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Tanggal tidak boleh kosong';
+                }
+                return null;
+              },
             ),
             const SizedBox(height: 20),
 
-            // Tugas Piket + Tombol Tambah
             const Text('Tugas Piket', style: TextStyle(fontSize: 16)),
             const SizedBox(height: 10),
             Row(
               children: [
                 Expanded(
-                  child: TextField(
+                  child: TextFormField(
                     controller: taskController,
                     decoration: InputDecoration(
                       hintText: 'Masukkan Tugas Piket',
@@ -104,6 +109,12 @@ class _DatapiketState extends State<Datapiket> {
                         borderRadius: BorderRadius.circular(12.0),
                       ),
                     ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Tugas Piket tidak boleh kosong';
+                      }
+                      return null;
+                    },
                   ),
                 ),
                 const SizedBox(width: 10),
@@ -128,7 +139,6 @@ class _DatapiketState extends State<Datapiket> {
             ),
             const SizedBox(height: 20),
 
-            // Daftar Tugas Piket - Rata Tengah
             const SizedBox(height: 20),
             Center(
               child: const Text(
@@ -146,12 +156,7 @@ class _DatapiketState extends State<Datapiket> {
                     return Container(
                       margin: const EdgeInsets.only(bottom: 10),
                       decoration: BoxDecoration(
-                        color: const Color.fromARGB(
-                          255,
-                          244,
-                          151,
-                          13,
-                        ), // Background sesuai dengan tombol
+                        color: const Color.fromARGB(255, 244, 151, 13),
                         borderRadius: BorderRadius.circular(15),
                       ),
                       child: ListTile(
@@ -160,8 +165,6 @@ class _DatapiketState extends State<Datapiket> {
                         trailing: IconButton(
                           icon: const Icon(Icons.arrow_forward_ios_outlined),
                           onPressed: () {
-                            // Implementasikan navigasi atau detail tugas
-
                             Navigator.push(
                               context,
                               MaterialPageRoute(
