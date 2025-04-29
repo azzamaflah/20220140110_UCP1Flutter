@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:ucp1/DataPelanggan.dart';
 import 'package:ucp1/Datapiket.dart';
 import 'package:ucp1/LoginPage.dart';
-import 'package:ucp1/PendataanBarang.dart';
+import 'package:ucp1/PendataanBarang.dart'; // Pastikan Anda import halaman PendataanBarang
 
 class Homepage extends StatelessWidget {
-
   final String email;
 
   const Homepage({super.key, required this.email});
@@ -28,10 +27,15 @@ class Homepage extends StatelessWidget {
         ],
         title: Row(
           children: [
-            CircleAvatar(
+            // Ganti gambar profile dengan Icon
+            const CircleAvatar(
               radius: 20,
               backgroundColor: Colors.white,
-              backgroundImage: AssetImage('assets/banner.jpg'),
+              child: Icon(
+                Icons.account_circle,
+                size: 30,
+                color: Colors.orange,
+              ), // Icon profil
             ),
             const SizedBox(width: 10),
             Text('Selamat Datang $email'),
@@ -42,18 +46,9 @@ class Homepage extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            // Banner
-            Container(
-              height: 120,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: Colors.red[100],
-                borderRadius: BorderRadius.circular(10),
-              ),
-              padding: const EdgeInsets.all(10),
-              child: Image(image: AssetImage('assets/banner.jpg')),
-            ),
+            // Menghapus banner
             const SizedBox(height: 20),
+
             // Grid dengan 2 kolom di baris pertama dan 1 kolom di baris kedua
             GridView.count(
               shrinkWrap: true,

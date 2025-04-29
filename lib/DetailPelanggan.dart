@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ucp1/HomePage.dart';
+import 'package:ucp1/HomePage.dart'; // Import halaman Homepage
 
 class DetailPelanggan extends StatelessWidget {
   final String name;
@@ -30,12 +30,15 @@ class DetailPelanggan extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            // Profile Image
-            CircleAvatar(
+            // Profile Image -> Ganti dengan Icon
+            const CircleAvatar(
               radius: 50,
-              backgroundImage: AssetImage(
-                'assets/tokped.png',
-              ), // Ganti dengan gambar profile
+              backgroundColor: Colors.white,
+              child: Icon(
+                Icons.account_circle, // Ikon profil
+                size: 50,
+                color: Colors.orange,
+              ),
             ),
             const SizedBox(height: 20),
 
@@ -133,11 +136,14 @@ class DetailPelanggan extends StatelessWidget {
             // Button "Selesai"
             ElevatedButton(
               onPressed: () {
-                 Navigator.pushReplacement(
+                Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => Homepage(email: email),
-                  ), // Arahkan ke halaman Homepage
+                    builder:
+                        (context) => Homepage(
+                          email: email,
+                        ), // Arahkan ke halaman Homepage
+                  ),
                 );
               },
               child: const Text('Selesai'),

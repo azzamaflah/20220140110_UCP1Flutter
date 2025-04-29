@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ucp1/HomePage.dart';
+import 'package:ucp1/HomePage.dart'; // Import halaman Homepage
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -15,6 +15,8 @@ class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController =
       TextEditingController();
+
+  final _formKey = GlobalKey<FormState>();
 
   void register() {
     if (_formKey.currentState!.validate()) {
@@ -35,8 +37,6 @@ class _RegisterPageState extends State<RegisterPage> {
       }
     }
   }
-
-  final _formKey = GlobalKey<FormState>();
 
   @override
   void dispose() {
@@ -91,17 +91,6 @@ class _RegisterPageState extends State<RegisterPage> {
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12.0),
                   ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12.0),
-                    borderSide: const BorderSide(
-                      color: Colors.orange,
-                      width: 2,
-                    ),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12.0),
-                    borderSide: const BorderSide(color: Colors.grey, width: 1),
-                  ),
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -134,20 +123,6 @@ class _RegisterPageState extends State<RegisterPage> {
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(12.0),
                               ),
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(12.0),
-                                borderSide: const BorderSide(
-                                  color: Colors.orange,
-                                  width: 2,
-                                ),
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(12.0),
-                                borderSide: const BorderSide(
-                                  color: Colors.grey,
-                                  width: 1,
-                                ),
-                              ),
                             ),
                             validator: (value) {
                               if (value == null || value.isEmpty) {
@@ -179,20 +154,6 @@ class _RegisterPageState extends State<RegisterPage> {
                               hintText: 'Masukkan No HP Anda',
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(12.0),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(12.0),
-                                borderSide: const BorderSide(
-                                  color: Colors.orange,
-                                  width: 2,
-                                ),
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(12.0),
-                                borderSide: const BorderSide(
-                                  color: Colors.grey,
-                                  width: 1,
-                                ),
                               ),
                             ),
                             validator: (value) {
@@ -233,20 +194,6 @@ class _RegisterPageState extends State<RegisterPage> {
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(12.0),
                               ),
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(12.0),
-                                borderSide: const BorderSide(
-                                  color: Colors.orange,
-                                  width: 2,
-                                ),
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(12.0),
-                                borderSide: const BorderSide(
-                                  color: Colors.grey,
-                                  width: 1,
-                                ),
-                              ),
                             ),
                             obscureText: true,
                             validator: (value) {
@@ -281,25 +228,14 @@ class _RegisterPageState extends State<RegisterPage> {
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(12.0),
                               ),
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(12.0),
-                                borderSide: const BorderSide(
-                                  color: Colors.orange,
-                                  width: 2,
-                                ),
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(12.0),
-                                borderSide: const BorderSide(
-                                  color: Colors.grey,
-                                  width: 1,
-                                ),
-                              ),
                             ),
                             obscureText: true,
                             validator: (value) {
                               if (value == null || value.isEmpty) {
                                 return 'Konfirmasi password tidak boleh kosong';
+                              }
+                              if (value != passwordController.text) {
+                                return 'Konfirmasi password tidak cocok';
                               }
                               return null;
                             },
@@ -314,13 +250,15 @@ class _RegisterPageState extends State<RegisterPage> {
 
               ElevatedButton(
                 onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder:
-                          (context) => Homepage(email: emailController.text),
-                    ),
-                  );
+                  if (_formKey.currentState!.validate()) {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder:
+                            (context) => Homepage(email: emailController.text),
+                      ),
+                    );
+                  }
                 },
                 child: const Text('Daftar'),
                 style: ElevatedButton.styleFrom(
