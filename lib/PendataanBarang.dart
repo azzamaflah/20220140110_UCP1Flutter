@@ -21,6 +21,14 @@ class _PendataanbarangState extends State<Pendataanbarang> {
   TextEditingController dateController = TextEditingController();
   TextEditingController quantityController = TextEditingController();
 
+  // Fungsi untuk menambahkan validasi pada tanggal
+  String? validateDate() {
+    if (selectedDate.isEmpty) {
+      return 'Tanggal Transaksi tidak boleh kosong';
+    }
+    return null;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,10 +49,13 @@ class _PendataanbarangState extends State<Pendataanbarang> {
             TextField(
               controller: dateController,
               decoration: InputDecoration(
+                prefixIcon: const Icon(Icons.calendar_today),
                 hintText: 'Tanggal Transaksi',
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12.0),
                 ),
+                errorText:
+                    validateDate(), // Tampilkan pesan error jika tanggal kosong
               ),
               readOnly: true,
               onTap: () async {
@@ -208,21 +219,31 @@ class _PendataanbarangState extends State<Pendataanbarang> {
             // Tombol Simpan
             ElevatedButton(
               onPressed: () {
-                // Navigasi ke halaman DetailTransaksi
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder:
-                        (context) => Detailtransaksi(
-                          date: selectedDate,
-                          transactionType: selectedTransactionType,
-                          itemType: selectedItemType,
-                          quantity: quantity,
-                          unitPrice: unitPrice,
-                          totalPrice: totalPrice,
-                        ),
-                  ),
-                );
+                if (selectedDate.isNotEmpty &&
+                    quantityController.text.isNotEmpty) {
+                  // Navigasi ke halaman DetailTransaksi
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder:
+                          (context) => Detailtransaksi(
+                            date: selectedDate,
+                            transactionType: selectedTransactionType,
+                            itemType: selectedItemType,
+                            quantity: quantity,
+                            unitPrice: unitPrice,
+                            totalPrice: totalPrice,
+                          ),
+                    ),
+                  );
+                } else {
+                  // Tampilkan pesan jika ada input yang kosong
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Pastikan semua field terisi'),
+                    ),
+                  );
+                }
               },
               child: const Text('Submit'),
               style: ElevatedButton.styleFrom(
