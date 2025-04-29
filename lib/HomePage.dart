@@ -6,7 +6,7 @@ import 'package:ucp1/LoginPage.dart'; // Pastikan Anda import halaman Datapiket
 class Homepage extends StatelessWidget {
 
   final String email;
-  
+
   const Homepage({super.key, required this.email});
 
   @override
@@ -50,8 +50,7 @@ class Homepage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
               ),
               padding: const EdgeInsets.all(10),
-              child: Image
-              (image: AssetImage('assets/banner.jpg'))
+              child: Image(image: AssetImage('assets/banner.jpg')),
             ),
             const SizedBox(height: 20),
             // Grid dengan 2 kolom di baris pertama dan 1 kolom di baris kedua
@@ -66,7 +65,11 @@ class Homepage extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 20),
-            buildActionButton(context, 'Barang Masuk/Keluar', Icons.inventory),
+            buildActionButtonFullWidth(
+              context,
+              'Barang Masuk/Keluar',
+              Icons.inventory,
+            ),
           ],
         ),
       ),
@@ -87,7 +90,6 @@ class Homepage extends StatelessWidget {
             context,
             MaterialPageRoute(builder: (context) => const Datapiket()),
           );
-          
         } else if (title == 'Data Pelanggan') {
           // Navigasi ke halaman Data Pelanggan
           Navigator.push(
@@ -95,7 +97,33 @@ class Homepage extends StatelessWidget {
             MaterialPageRoute(builder: (context) => const Datapelanggan()),
           );
         }
-        
+        print('$title klik');
+      },
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(icon, size: 30, color: Colors.white),
+          const SizedBox(height: 10),
+          Text(title, style: const TextStyle(color: Colors.white)),
+        ],
+      ),
+    );
+  }
+
+  // Tombol Barang Masuk/Keluar dengan lebar penuh
+  Widget buildActionButtonFullWidth(
+    BuildContext context,
+    String title,
+    IconData icon,
+  ) {
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        padding: const EdgeInsets.symmetric(vertical: 20),
+        backgroundColor: Colors.orange,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+        minimumSize: Size(double.infinity, 50), // Full width button
+      ),
+      onPressed: () {
         print('$title klik');
       },
       child: Column(
